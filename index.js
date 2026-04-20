@@ -12,7 +12,11 @@ function sum(a, b) {
  * @returns {string} The reversed string.
  */
 function reverseString(str) {
-  return str.split('').reverse().join('');
+  let result = '';
+  for (let i = str.length - 1; i >= 0; i--) {
+    result = result + str[i];
+  }
+  return result;
 }
 
 /**
@@ -21,7 +25,13 @@ function reverseString(str) {
  */
 function findLargest(numbers) {
   if (numbers.length === 0) return null;
-  return Math.max(...numbers);
+  let largest = numbers[0];
+  for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] > largest) {
+      largest = numbers[i];
+    }
+  }
+  return largest;
 }
 
 /**
@@ -31,8 +41,12 @@ function findLargest(numbers) {
  * The check should be case-insensitive.
  */
 function isPalindrome(str) {
-  const lower = str.toLowerCase();
-  return lower === lower.split('').reverse().join('');
+  let lower = str.toLowerCase();
+  let reversed = '';
+  for (let i = lower.length - 1; i >= 0; i--) {
+    reversed = reversed + lower[i];
+  }
+  return lower === reversed;
 }
 
 /**
@@ -40,7 +54,13 @@ function isPalindrome(str) {
  * @returns {number[]} A new array containing only the even numbers from the original array.
  */
 function filterEvenNumbers(numbers) {
-  return numbers.filter(n => n % 2 === 0);
+  let result = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 0) {
+      result.push(numbers[i]);
+    }
+  }
+  return result;
 }
 
 
